@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS public.employee
     country text NOT NULL,
     dept_id uuid NOT NULL,
     CONSTRAINT employee_pkey PRIMARY KEY (id, country),
-    CONSTRAINT dept_id_fkey FOREIGN KEY(dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT dept_id_fkey FOREIGN KEY(dept_id) REFERENCES department(id)
+    ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT country_unique UNIQUE(country)
 ) PARTITION BY LIST (country);
 
@@ -73,7 +74,8 @@ CREATE TABLE IF NOT EXISTS public.sales
     country text NOT NULL,
     discount bigint DEFAULT 0,
     CONSTRAINT sales_pkey PRIMARY KEY(id, country),
-    CONSTRAINT employee_fkey FOREIGN KEY(employee_id) REFERENCES public.employee(id) ON UPDATE CASCADE ON DELETE CASCADE
+    CONSTRAINT employee_fkey FOREIGN KEY(employee_id, country) REFERENCES public.employee(id, country)
+	ON UPDATE CASCADE ON DELETE CASCADE
 ) PARTITION BY LIST(country);
 
 -- Sales Table Partitions SQL
@@ -103,8 +105,10 @@ CREATE TABLE IF NOT EXISTS public.order
     amount bigint NOT NULL,
     country text NOT NULL,
     CONSTRAINT order_pkey PRIMARY KEY(id, country),
-    CONSTRAINT product_fkey FOREIGN KEY(product_id) REFERENCES public.product(id) ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT sales_fkey FOREIGN KEY(sales_id) REFERENCES public.sales(id) ON UPDATE CASCADE ON DELETE CASCADE
+    CONSTRAINT product_fkey FOREIGN KEY(product_id, country) REFERENCES public.product(id, country)
+    ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT sales_fkey FOREIGN KEY(sales_id, country) REFERENCES public.sales(id, country)
+    ON UPDATE CASCADE ON DELETE CASCADE
 ) PARTITION BY LIST(country);
 
 -- Order Table Partitions SQL
