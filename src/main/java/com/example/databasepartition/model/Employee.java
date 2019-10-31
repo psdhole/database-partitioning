@@ -1,9 +1,6 @@
 package com.example.databasepartition.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -26,5 +23,5 @@ public class Employee {
 
     private String designation;
 
-    private String deptId;
+    private Department department;
 }

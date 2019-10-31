@@ -7,9 +7,9 @@ import javax.persistence.Entity;
 
 @Entity
 @Data
-public class Dept {
+public class Department {
     @EmbeddedId
     private Id id;
 
-    private String deptName;
+    private String departmentName;
 }

@@ -11,7 +11,7 @@ public class Product {
     @EmbeddedId
     private Id id;
 
-    private String name;
+    private String productName;
 
-    private String price;
+    private double price;
 }

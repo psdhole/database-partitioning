@@ -7,10 +7,10 @@ import lombok.Data;
  */
 @Data
 public class EmployeeDTO {
-    private String empId;
+    private String employeeId;
     private String firstName;
     private String lastName;
     private String designation;
-    private String deptId;
+    private String departmentId;
     private String countryCode;
 }

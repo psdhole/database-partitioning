@@ -2,9 +2,8 @@ package com.example.databasepartition.model;
 
 import lombok.Data;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -12,11 +11,11 @@ public class Sales {
     @EmbeddedId
     private Id id;
 
-    @NotNull
-    private String orderId;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Order> orderList;
 
-    @NotNull
-    private String employeeId;
+    @OneToOne
+    private Employee employee;
 
-    private String totalAmt;
+    private double totalAmount;
 }

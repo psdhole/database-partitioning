@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
+import javax.persistence.OneToOne;
 
 @Data
 @Entity
@@ -12,12 +12,12 @@ public class Order {
     @EmbeddedId
     private Id id;
 
-    @NotNull
-    private String productId;
+    @OneToOne
+    private Product product;
 
-    private String quantity;
+    private long quantity;
 
-    private String discount;
+    private double discount;
 
-    private String amt;
+    private double amount;
 }

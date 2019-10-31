@@ -7,6 +7,6 @@ public class SalesDTO {
     private String salesId;
     private String country;
     private String orderId;
-    private String empId;
-    private String totalAmount;
+    private String employeeId;
+    private double totalAmount;
 }
