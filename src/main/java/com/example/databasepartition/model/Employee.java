@@ -14,19 +14,17 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
 public class Employee {
 
     @EmbeddedId
-    private EmployeeId employeeId;
+    private Id ID;
 
     @NotNull
-    private String firstName;
+    private String FIRST_NAME;
 
-    private String lastName;
+    private String LAST_NAME;
 
-    private String designation;
+    private String DESIGNATION;
 
+    private String DEPT_ID;
 }
