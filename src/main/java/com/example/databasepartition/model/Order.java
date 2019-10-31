@@ -10,14 +10,14 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Order {
     @EmbeddedId
-    private Id ID;
+    private Id id;
 
     @NotNull
-    private String PRODUCT_ID;
+    private String productId;
 
-    private String QUANTITY;
+    private String quantity;
 
-    private String DISCOUNT;
+    private String discount;
 
-    private String AMT;
+    private String amt;
 }

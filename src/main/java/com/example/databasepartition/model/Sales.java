@@ -10,13 +10,13 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Sales {
     @EmbeddedId
-    private Id ID;
+    private Id id;
 
     @NotNull
-    private String ORDER_ID;
+    private String orderId;
 
     @NotNull
-    private String EMPLOYEE_ID;
+    private String employeeId;
 
-    private String TOTAL_AMT;
+    private String totalAmt;
 }

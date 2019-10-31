@@ -17,14 +17,14 @@ import javax.validation.constraints.NotNull;
 public class Employee {
 
     @EmbeddedId
-    private Id ID;
+    private Id id;
 
     @NotNull
-    private String FIRST_NAME;
+    private String firstName;
 
-    private String LAST_NAME;
+    private String lastName;
 
-    private String DESIGNATION;
+    private String designation;
 
-    private String DEPT_ID;
+    private String deptId;
 }
